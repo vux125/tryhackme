@@ -4,17 +4,17 @@
 ## **Giới thiệu về Cyber Security**
 Ngành Cyber Security là ngành nghề rất có triển vọng trong tương lai, với các lĩnh vực đáng chú ý như:
 
--- Chuyên viên phân tích an ninh (Security Analyst)
+- Chuyên viên phân tích an ninh (Security Analyst)
 
--- Kỹ sư an ninh (Security Enginneer)
+- Kỹ sư an ninh (Security Enginneer)
 
--- Phân tích mã độc (Malware Analyst)
+- Phân tích mã độc (Malware Analyst)
 
--- Kiểm thử xâm nhâp (Penetration Testing)
+- Kiểm thử xâm nhâp (Penetration Testing)
 
--- Red Team
+- Red Team
 
--- Blue Team...
+- Blue Team...
 
 
 ## Network
@@ -30,19 +30,19 @@ Quan trọng hơn cả là chúng ta sẽ tiếp cận với mô hình OSI.
 
 Mô hình OSI có 7 lớp:
 
--- Layer 1: Physical (Lớp vật lý) đây là lớp thấp nhất chịu trách nghiệm truyền dữ liệu giữa các thiết bị phần cúng dưới dạng các bit 0 và 1.
+- Layer 1: Physical (Lớp vật lý) đây là lớp thấp nhất chịu trách nghiệm truyền dữ liệu giữa các thiết bị phần cúng dưới dạng các bit 0 và 1.
 
--- Layer 2: Data Link (Lớp liên kêt) dữ liệu tập trung vào việc xác định địa chỉ vật lý của quá trình truyền. Nó nhận một gói tin từ lớp mạng (bao gồm địa chỉ IP cho máy tính từ xa) và thêm vào địa chỉ MAC (Media Access Control) vật lý của điểm cuối nhận.
+- Layer 2: Data Link (Lớp liên kêt) dữ liệu tập trung vào việc xác định địa chỉ vật lý của quá trình truyền. Nó nhận một gói tin từ lớp mạng (bao gồm địa chỉ IP cho máy tính từ xa) và thêm vào địa chỉ MAC (Media Access Control) vật lý của điểm cuối nhận.
 
--- Layer 3: Network (Lớp mạng) trách nghiệm chính là định tuyến dữ liệu.
+- Layer 3: Network (Lớp mạng) trách nghiệm chính là định tuyến dữ liệu.
 
--- Layer 4: Transport (Lớp vận chuyển) khi dữ liệu gửi giữa hai thiết bị nó sẽ tuân theo 2 giao thứ là TCP và UDP.
+- Layer 4: Transport (Lớp vận chuyển) khi dữ liệu gửi giữa hai thiết bị nó sẽ tuân theo 2 giao thứ là TCP và UDP.
 
--- Layer 5: Session (Lớp phiên) tạo và duy trì kết nối với máy tính khác mà dữ liệu được gửi đến,đóng kết nối nếu nó không được sử dụng trong một thời gian hoặc nếu nó bị mất, các phiên là duy nhất — nghĩa là dữ liệu không thể di chuyển qua các phiên khác nhau mà chỉ có thể di chuyển qua từng phiên.
+- Layer 5: Session (Lớp phiên) tạo và duy trì kết nối với máy tính khác mà dữ liệu được gửi đến,đóng kết nối nếu nó không được sử dụng trong một thời gian hoặc nếu nó bị mất, các phiên là duy nhất — nghĩa là dữ liệu không thể di chuyển qua các phiên khác nhau mà chỉ có thể di chuyển qua từng phiên.
 
--- Layer 6: Presentation (Lớp trình diễn) là lớp mà quá trình chuẩn hóa bắt đầu diễn ra. 
+- Layer 6: Presentation (Lớp trình diễn) là lớp mà quá trình chuẩn hóa bắt đầu diễn ra. 
 
--- Layer 7: Application (Lớp ứng dụng) là tầng mà các giao thức và quy tắc được áp dụng để xác định cách người dùng tương tác với dữ liệu được gửi hoặc nhận.
+- Layer 7: Application (Lớp ứng dụng) là tầng mà các giao thức và quy tắc được áp dụng để xác định cách người dùng tương tác với dữ liệu được gửi hoặc nhận.
 
 Packets(gói) và frames(khung): là những phần dữ liệu nhỏ, khi kết hợp lại với nhau, tạo thành một phần thông tin hoặc tin nhắn lớn hơn. Tuy nhiên, chúng là hai thứ khác nhau trong mô hình OSI. Khung nằm ở lớp 2 - lớp liên kết dữ liệu, nghĩa là không có thông tin nào như địa chỉ IP. Còn packets là đơn vị nằm ở lớp 3 (Network)
 
@@ -50,11 +50,11 @@ Một số trường tiêu đề đáng chú ý trong gói tin: Time-to-live (Th
 
 Quá tình bắt tay 3 bước giả sử với Alice(Client) và Bob(Server):
 
--- SYN: Client gửi yêu cầu kết nối tới Server
+- SYN: Client gửi yêu cầu kết nối tới Server
 
--- SYN/ACK: Server phản hồi ACK và gửi SYN để hỏi client sẵn sàng kết nối không.
+- SYN/ACK: Server phản hồi ACK và gửi SYN để hỏi client sẵn sàng kết nối không.
 
--- ACK: client gửi ACK nếu sẵn sàng kết nối
+- ACK: client gửi ACK nếu sẵn sàng kết nối
 
 
 ![image](https://github.com/user-attachments/assets/3f8cf448-c3e0-4903-bf6a-1bb35d18bf15)
@@ -69,13 +69,13 @@ Không giống như giao thức TCP, UDP là  giao thức không trạng thái, 
 
 Tường lửa là một thiết bị trong mạng có trách nhiệm xác định lưu lượng nào được phép vào và ra. Hãy nghĩ về tường lửa như là bảo mật biên giới cho mạng. Người quản trị có thể cấu hình tường lửa để  cho phép  hoặc  từ chối  lưu lượng vào hoặc ra khỏi mạng dựa trên nhiều yếu tố:
 
--- Lưu lượng truy cập đến từ đâu? ( tường lửa có được yêu cầu chấp nhận/từ chối lưu lượng truy cập từ một mạng cụ thể không?)
+- Lưu lượng truy cập đến từ đâu? ( tường lửa có được yêu cầu chấp nhận/từ chối lưu lượng truy cập từ một mạng cụ thể không?)
 
--- Lưu lượng truy cập sẽ đi đến đâu? ( tường lửa có được yêu cầu chấp nhận/từ chối lưu lượng truy cập đến một mạng cụ thể không?)
+- Lưu lượng truy cập sẽ đi đến đâu? ( tường lửa có được yêu cầu chấp nhận/từ chối lưu lượng truy cập đến một mạng cụ thể không?)
 
--- Lưu lượng truy cập đến cổng nào? ( tường lửa có được yêu cầu chấp nhận/từ chối lưu lượng truy cập đến cổng 80 không?)
+- Lưu lượng truy cập đến cổng nào? ( tường lửa có được yêu cầu chấp nhận/từ chối lưu lượng truy cập đến cổng 80 không?)
 
--- Lưu lượng truy cập đang sử dụng giao thức nào? ( tường lửa đã được yêu cầu chấp nhận/từ chối lưu lượng truy cập UDP , TCP hay cả hai chưa?)
+- Lưu lượng truy cập đang sử dụng giao thức nào? ( tường lửa đã được yêu cầu chấp nhận/từ chối lưu lượng truy cập UDP , TCP hay cả hai chưa?)
 
 Mạng  riêng ảo  (hay  gọi tắt là VPN ) là công nghệ cho phép các thiết bị trên các mạng riêng biệt giao tiếp an toàn bằng cách tạo ra một đường dẫn chuyên dụng giữa các thiết  bị  với nhau qua Internet (gọi là đường hầm). Các thiết bị được kết nối trong đường hầm này tạo thành mạng riêng của chúng.
 
