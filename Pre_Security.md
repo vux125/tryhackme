@@ -125,7 +125,7 @@ Cách thức hoạt động của web có thể hiểu đơn giản thông qua h
 
 ## **Cơ bản về Linux**
 
-***Các lệnh cơ bản***: echo, ls, whoami, mkdir, touch, head, grep, find, tail, more, which, sudo, cat, pwd, wc, rm, file, mv, chmod, su, chown, ps, top, kill,
+***Các lệnh cơ bản***: echo, ls, whoami, mkdir, touch, head, grep, find, tail, more, which, sudo, cat, pwd, wc, rm, file, mv, chmod, su, chown, ps, top, kill,...
 
 ***Các toán tử***: '>', '>>', '&', '&&', '|'
 
