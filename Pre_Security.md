@@ -82,12 +82,65 @@ Mạng  riêng ảo  (hay  gọi tắt là VPN ) là công nghệ cho phép các
 ![image](https://github.com/user-attachments/assets/4dbfc01b-c0db-4ad3-8d08-53dea36eb6e6)
 
 ## **Cách thức hoạt động của thế giới Web**
-***DNS***
 
-***HTTP***
+### ***DNS***
 
-***Cách thức hoạt động***
+Hệ thống tên miền (DNS) là giao thức chịu trách nhiệm phân giải tên máy chủ, chẳng hạn như tryhackme.com, thành địa chỉ IP tương ứng của chúng.
+
+#### ***Hệ thống phân cấp miền***
+- ***TLD (Top-Level Domain)***: TLD là phần bên phải nhất của tên miền. Ví dụ, TLD của tryhackme.com là  .com . Có hai loại TLD, gTLD (Generic Top Level) và ccTLD (Country Code Top Level Domain).  gTLD có nghĩa là cho người dùng biết mục đích của tên miền ví dụ .edu dành cho giáo dục, .gov dành cho chính phủ.... ccTLD được sử dụng cho mục đích địa lý, ví dụ, .ca dành cho các trang web có trụ sở tại Canada, .co.uk dành cho các trang web có trụ sở tại Vương quốc Anh, v.v 
+
+- ***Second-Level Domain***: Lấy tryhackme.com làm ví dụ, phần .com là TLD, và tryhackme là Tên miền cấp hai. Khi đăng ký tên miền, tên miền cấp hai bị giới hạn ở 63 ký tự + TLD và chỉ có thể sử dụng az 0-9 và dấu gạch nối
+
+- ***Subdomain***: Tên miền phụ nằm ở phía bên trái của tên miền cấp hai bằng cách sử dụng dấu chấm để phân tách; ví dụ, trong tên admin.tryhackme.com, phần quản trị là tên miền phụ.
+
+#### ***Các loại bản ghi DNS***
+
+- ***A Record***: phân giải thành địa chỉa IPv4
+
+- ***AAAA Record***: phân giải thành địa chỉa IPv6
+
+- ***CNAME Record***: Các bản ghi này giải quyết một tên miền khác, ví dụ, cửa hàng trực tuyến của TryHackMe có tên miền phụ store.tryhackme.com trả về bản ghi CNAME shops.shopify.com . Sau đó, một yêu cầu DNS khác sẽ được thực hiện tới shops.shopify.com để tìm ra địa chỉ IP.
+
+- ***MX Record***: Các bản ghi này giải quyết địa chỉ của các máy chủ xử lý email cho tên miền bạn đang truy vấn, ví dụ phản hồi bản ghi MX cho tryhackme.com sẽ trông giống như  alt1.aspmx.l.google.com
+
+- ***TXT Record***: Bản ghi TXT là các trường văn bản tự do, nơi có thể lưu trữ bất kỳ dữ liệu dạng văn bản nào. Bản ghi TXT có nhiều mục đích sử dụng, nhưng một số mục đích phổ biến có thể là liệt kê các máy chủ có thẩm quyền gửi email thay mặt cho tên miền (điều này có thể giúp chống lại thư rác và email giả mạo). Chúng cũng có thể được sử dụng để xác minh quyền sở hữu tên miền khi đăng ký dịch vụ của bên thứ ba.
+
+#### ***Quy trình***
+
+![image](https://github.com/user-attachments/assets/8e54d510-2f9a-422e-b937-f77bbdc34573)
+
+
+### ***HTTP***
+
+Giao thức truyền siêu văn bản (HTTP) là giao thức chỉ định cách trình duyệt web và máy chủ web giao tiếp
+
+HTTPS là phiên bản bảo mật của HTTP . Dữ liệu HTTPS được mã hóa nên không chỉ ngăn người khác nhìn thấy dữ liệu bạn đang nhận và gửi mà còn đảm bảo rằng bạn đang trao đổi với đúng máy chủ web chứ không phải thứ gì đó mạo danh.
+
+Format URL: ***scheme://user:password@host:port/path?parameter=value***
+
+Cách thức hoạt động của web có thể hiểu đơn giản thông qua hình sau:
+
+![image](https://github.com/user-attachments/assets/e0c90c63-2aea-4d5f-9a1b-d11ac785b99a)
 
 ## **Cơ bản về Linux**
 
+***Các lệnh cơ bản***: echo, ls, whoami, mkdir, touch, head, grep, find, tail, more, which, sudo, cat, pwd, wc, rm, file, mv, chmod, su, chown, ps, top, kill,
+
+***Các toán tử***: '>', '>>', '&', '&&', '|'
+
 ## **Cơ bản về Windows**
+
+***Giới thiệu về giao diện của Windows***
+
+***Các quyền trong Windows***: Full Controll, Read & Execute, Read, Write, Modify, List folder contents
+
+Thư mục Windows ( C:\Windows) theo truyền thống được biết đến là thư mục chứa hệ điều hành Windows. 
+
+Đây là nơi các biến môi trường, cụ thể hơn là các biến môi trường hệ thống, phát huy tác dụng.  Mặc dù chưa được thảo luận, biến môi trường hệ thống cho thư mục Windows là %windir%
+
+Thư mục System32 chứa các tập tin quan trọng có vai trò sống còn đối với hệ điều hành.
+
+Để bảo vệ người dùng cục bộ với các đặc quyền như vậy, Microsoft đã giới thiệu Kiểm soát tài khoản người dùng ( UAC ). Khái niệm này lần đầu tiên được giới thiệu với Windows Vista tồn tại trong thời gian ngắn  và tiếp tục với các phiên bản Windows tiếp theo. Khi người dùng có loại tài khoản là quản trị viên đăng nhập vào hệ thống, phiên hiện tại không chạy với quyền nâng cao. Khi một hoạt động yêu cầu quyền cấp cao hơn cần thực thi, người dùng sẽ được nhắc xác nhận xem họ có cho phép hoạt động đó chạy hay không. Tên người dùng và mật khẩu cho người dùng chuẩn. Nó hiển thị trong lusrmgr.msc.
+
+
