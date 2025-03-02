@@ -2,7 +2,7 @@
 
 ## Command line
 
-- ***set** để cho chúng ta thấy đường dẫn nơi mà các câu lệnh sẽ được tìm kiếm để thực hiện(sau Path=):
+- ***set*** để cho chúng ta thấy đường dẫn nơi mà các câu lệnh sẽ được tìm kiếm để thực hiện(sau Path=):
 
 ![image](https://github.com/user-attachments/assets/bf69e0c9-e7a3-45ec-8a78-5977f0023b1e)
 
@@ -135,12 +135,152 @@ Lọc danh sách lệnh dựa trên các giá trị thuộc tính được hiể
 
 - Ví dụ thứ hai chứng minh rằng chúng ta không cần biết cách viết kịch bản để tận dụng sức mạnh của Invoke-Command. Trên thực tế, bằng cách thêm tham số -ScriptBlock { ... } vào cú pháp của cmdlet, chúng ta có thể thực thi bất kỳ lệnh nào (hoặc chuỗi lệnh) trên máy tính từ xa. Kết quả sẽ giống như khi chúng ta nhập lệnh trong phiên PowerShell cục bộ trên chính máy tính từ xa.
 
-`Invoke-Command → Thực thi lệnh từ xa.`
+`Invoke-Command` → Thực thi lệnh từ xa.
 
-`ComputerName Server01 → Chỉ định máy tính từ xa (tên máy chủ là Server01).`
+`ComputerName Server01` → Chỉ định máy tính từ xa (tên máy chủ là Server01).
 
-`Credential Domain01\User01 → Chạy lệnh với thông tin đăng nhập User01 thuộc miền Domain01. Hệ thống sẽ yêu cầu nhập mật khẩu.`
+`Credential Domain01\User01` → Chạy lệnh với thông tin đăng nhập User01 thuộc miền Domain01. Hệ thống sẽ yêu cầu nhập mật khẩu.
 
-`ScriptBlock { Get-Culture } → Chạy lệnh Get-Culture trên máy từ xa để lấy thông tin về ngôn ngữ và định dạng văn hóa của hệ thống (en-US, fr-FR, v.v.).`
+`ScriptBlock { Get-Culture }` → Chạy lệnh Get-Culture trên máy từ xa để lấy thông tin về ngôn ngữ và định dạng văn hóa của hệ thống (en-US, fr-FR, v.v.).
+
+--- 
 
 # Linux Shell
+
+- Trong Linux có nhiều loại shell được cài đặt và chúng ta có thể thấy nó trong /etc/shells:
+
+![image](https://github.com/user-attachments/assets/7d07e78a-e553-44a9-b6ba-c8df961ec4c8)
+
+- Để chuyển đổi các loại shell ta chỉ cần gọi tên của shell đó:
+
+![image](https://github.com/user-attachments/assets/271a5dad-aba5-41a4-bfdc-6a3d0543f1fe)
+
+- `chsh -s /usr/bin/zsh` lệnh này sẽ cài đặt shell mặc định cho terminal.
+
+## Các Shell phổ biến
+
+### Bash 
+
+- Nó cung cấp tính năng hoàn thành tab, nghĩa là nếu bạn đang hoàn thành một lệnh, bạn có thể nhấn phím tab trên bàn phím. Nó sẽ tự động hoàn thành lệnh dựa trên kết quả khớp có thể hoặc đưa ra cho bạn nhiều gợi ý để hoàn thành lệnh.
+
+- Bash lưu trữ một tệp lịch sử và ghi lại tất cả các lệnh của bạn. Bạn có thể sử dụng các phím mũi tên lên và xuống để sử dụng các lệnh trước đó mà không cần nhập lại chúng. Bạn cũng có thể nhập historyđể hiển thị tất cả các lệnh trước đó của mình.
+
+### Friendly Interactive Shell (Fish) 
+
+- Nó cung cấp cú pháp rất đơn giản, phù hợp với cả người dùng mới bắt đầu.
+
+- Không giống như bash, nó có chức năng tự động sửa lỗi chính tả cho các lệnh bạn viết.
+
+- Bạn có thể tùy chỉnh dấu nhắc lệnh bằng một số chủ đề thú vị bằng cách sử dụng fish.
+
+- Tính năng tô sáng cú pháp của fish tô màu các phần khác nhau của lệnh dựa trên vai trò của chúng, có thể cải thiện khả năng đọc lệnh. Nó cũng giúp chúng ta phát hiện lỗi bằng màu sắc riêng của chúng.
+  
+- Fish cũng cung cấp chức năng tạo tập lệnh, hoàn thành tab và lịch sử lệnh giống như các shell được đề cập trong nhiệm vụ này.
+
+### Zsh
+
+- Zsh cung cấp tính năng hoàn thành tab nâng cao và cũng có khả năng viết tập lệnh.
+
+- Giống như cá, nó cũng cung cấp tính năng tự động sửa lỗi chính tả cho các lệnh.
+  
+- Nó cung cấp khả năng tùy chỉnh mở rộng, có thể khiến nó chậm hơn các shell khác.
+
+- Nó cũng cung cấp chức năng hoàn thành tab, lịch sử lệnh và một số tính năng khác.
+
+## Script
+
+- Chúng ta sẽ sử dụng bash shell, với tên tệp có phần mở rộng `.sh`
+
+- `#!<shell>` định nghĩa trình thông dịch trong shebang. Ví dụ với bash: `#!/bin/bash`
+
+### Variables
+
+- Khai bao biến và gán giá trị cho biến `Var=Value`, ví dụ: `NAME="Vu"`: 
+
+![image](https://github.com/user-attachments/assets/a8ca6729-37db-48d0-bf13-e5ba6680fbbe)
+
+- Chúng ta cũng có thể lấy đầu vào từ người dùng thông qua read:
+
+![image](https://github.com/user-attachments/assets/3940c97d-36f9-4df6-8c2b-20c8d08ff1fa)
+
+### Loop
+
+**Nhắc lại một số toán tử so sánh**: `-eq`, `-ne`, `-gt`, `-ge`, `-lt`, `-le`,...
+
+**Cú pháp lệnh for**
+
+`for variable in list`
+
+`do`
+
+  `command`
+
+`done`
+
+- Cũng có thể dùng cú pháp giống với for trong c/c++
+
+- Ví dụ 1:
+
+![image](https://github.com/user-attachments/assets/6edc9658-fcaa-4b1e-bf67-77b423a4abdc)
+
+- Ví dụ 2 dùng dấu {..}
+
+![image](https://github.com/user-attachments/assets/b250326f-abdc-491e-9ea0-dba76f58e24a)
+
+- Ví dụ 3 dùng seq để tạo dãy số:
+
+![image](https://github.com/user-attachments/assets/df4ba10b-2787-4b78-8524-db30df85ac00)
+
+- Ví dụ 4 duyệt file:
+
+![image](https://github.com/user-attachments/assets/2c914994-fbec-4607-8095-5972fcc6d21a)
+
+
+**Cú pháp lệnh while và until**
+
+- `while`: chạy khi điều kiện đúng
+  
+`while [ condition ]`
+
+`do`
+
+  `command`
+    
+`done`
+
+- `until`: chạy khi điều kiện sai
+
+`until [ condition ]`
+
+`do`
+
+  `command`
+    
+`done`
+
+### Câu lệnh có điều kiện
+
+**Cú pháp**
+
+`if [condition1]; then`
+
+  `command`
+    
+`elif [condition2]; then`
+
+  `command`
+    
+`else`
+
+  `command`
+    
+`fi`
+
+- Toán tử kiểm tra chuỗi: `=`==> bằng; `!=`==> khác; `-z`==> rỗng; `-n`==> không rỗng;
+
+- Cả hai điều kiện đúng `&&`, một trong hai đúng `||`
+
+- Toán tử kiểm tra tệp:
+
+![image](https://github.com/user-attachments/assets/9c7498db-687e-4f20-8f59-af7205ff02b4)
+
