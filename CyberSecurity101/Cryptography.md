@@ -111,7 +111,7 @@
 
 - Trên MS Windows, các băm mật khẩu được lưu trữ trong SAM (Security Accounts Manager). MS Windows cố gắng ngăn chặn người dùng bình thường xóa chúng, nhưng các công cụ như mimikatz tồn tại để vượt qua bảo mật MS Windows. Đáng chú ý là các băm được tìm thấy ở đó được chia thành băm NT và băm LM.
 
-- Một nơi tuyệt vời để tìm thêm định dạng băm và tiền tố mật khẩu là trang [Hashcat Example Hashes][https://hashcat.net/wiki/doku.php?id=example_hashes]
+- Một nơi tuyệt vời để tìm thêm định dạng băm và tiền tố mật khẩu là trang [Hashcat Example Hashes](https://hashcat.net/wiki/doku.php?id=example_hashes)
 
 - Bẻ khóa mật khẩu yếu bằng danh sách từ điển sử dụng hashcat: `hashcat -m <hash_type> -a <attack_mode> hashfile wordlist`
 
