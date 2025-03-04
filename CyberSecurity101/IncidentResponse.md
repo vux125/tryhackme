@@ -42,4 +42,104 @@
 
 Sau khi xác định được sự cố, một số quy trình nhất định phải được tuân theo, bao gồm điều tra mức độ tấn công, thực hiện các hành động cần thiết để ngăn ngừa thiệt hại thêm và loại bỏ nó từ gốc rễ. Các bước này có thể khác nhau đối với các loại sự cố khác nhau. Trong trường hợp này, có hướng dẫn từng bước để xử lý từng loại sự cố giúp bạn tiết kiệm rất nhiều thời gian. Các loại hướng dẫn này được gọi là Playbook.
 
+- `NOTE: một số công cụ chúng ta có thể tìm hiểu như: CyberChef, CAPA, REMnux, FlareVM...`
 
+## SIEM
+
+-  Vì tất cả các thiết bị này tạo ra hàng trăm sự kiện mỗi giây, nên việc kiểm tra từng imglog trên từng thiết bị một trong trường hợp có bất kỳ sự cố nào có thể là một nhiệm vụ tẻ nhạt. Đó là một trong những lợi thế của việc có giải pháp SIEM . Nó không chỉ lấy nhật ký từ nhiều nguồn khác nhau theo thời gian thực mà còn cung cấp khả năng tương quan giữa các sự kiện, tìm kiếm qua nhật ký, điều tra sự cố và phản hồi kịp thời. Một số tính năng chính do SIEM cung cấp là:
+
+  - Thu thập nhật ký thời gian thực
+  
+  - Cảnh báo về các hoạt động bất thường
+  
+  - Giám sát và khả năng hiển thị 24/7
+  
+  - Bảo vệ chống lại các mối đe dọa mới nhất thông qua phát hiện sớm
+
+  - Thông tin chi tiết và trực quan hóa dữ liệu
+  
+  - Khả năng điều tra các sự cố trong quá khứ.
+
+### Log sources and log ingestion
+
+- Máy Windows: Windows ghi lại mọi sự kiện có thể xem qua tiện ích Event Viewer. Nó gán một ID duy nhất cho từng loại hoạt động nhật ký, giúp nhà phân tích dễ dàng kiểm tra và theo dõi. Nhập vào thanh tìm kiếm Event Viewer để đến nơi chứa các loại nhật ký khác nhau.
+
+- Linux: Các file log thường được lưu trong /var/log/ ... được đưa vào hệ thống SIEM để giám sát liên tục
+
+- Máy chủ web: Trong Linux , các vị trí phổ biến để ghi tất cả các nhật ký liên quan đến apache là  /var/log/ apache  hoặc  /var/log/httpd.
+
+- ***Thu thập nhật ký***:
+
+  - Agent/Forwarder:  Các giải pháp SIEM này cung cấp một công cụ nhẹ gọi là agent (forwarder của Splunk ) được cài đặt trong Endpoint. Nó được cấu hình để thu thập tất cả các nhật ký quan trọng và gửi chúng đến máy chủ SIEM.
+
+  - Syslog:  Syslog là một giao thức được sử dụng rộng rãi để thu thập dữ liệu từ nhiều hệ thống khác nhau như máy chủ web, cơ sở dữ liệu, v.v., được gửi dữ liệu thời gian thực đến đích tập trung.
+ 
+  - Tải lên thủ công:  Một số giải pháp SIEM , như Splunk , ELK , v.v., cho phép người dùng nhập dữ liệu ngoại tuyến để phân tích nhanh. Sau khi dữ liệu được nhập, nó được chuẩn hóa và có sẵn để phân tích.
+ 
+  - Chuyển tiếp cổng: Các giải pháp  SIEM cũng có thể được cấu hình để lắng nghe trên một cổng nhất định, sau đó các điểm cuối sẽ chuyển tiếp dữ liệu đến phiên bản SIEM trên cổng lắng nghe.
+ 
+**Phân tích nhật ký và cảnh báo**
+
+- Bảng điều khiển
+
+  - Bảng điều khiển là thành phần quan trọng nhất của bất kỳ SIEM nào . SIEM trình bày dữ liệu để phân tích sau khi được chuẩn hóa và thu thập. Tóm tắt các phân tích này được trình bày dưới dạng thông tin chi tiết có thể hành động được với sự trợ giúp của nhiều bảng điều khiển. Mỗi giải pháp SIEM đều có một số bảng điều khiển mặc định và cung cấp tùy chọn để tạo Bảng điều khiển tùy chỉnh. Một số thông tin có thể tìm thấy trong bảng điều khiển là:
+
+    - Alert Highlights
+
+    - System Notification
+
+    - Health Alert
+
+    - List of Failed Login Attempts
+
+    - Events Ingested Count
+
+    - Rules triggered
+
+    - Top Domains Visited
+
+    ![image](https://github.com/user-attachments/assets/8ebeec02-6754-4eb5-b052-84ff510f9da5)
+
+**Quy tắc tương quan**
+
+- Quy tắc tương quan đóng vai trò quan trọng trong việc phát hiện kịp thời các mối đe dọa, cho phép các nhà phân tích hành động kịp thời. Quy tắc tương quan về cơ bản là các biểu thức logic được thiết lập để kích hoạt. Một số ví dụ về quy tắc tương quan là:
+
+  - Nếu Người dùng có 5 lần Đăng nhập không thành công trong 10 giây - Đưa ra cảnh báoMultiple Failed Login Attempts
+
+  - Nếu đăng nhập thành công sau nhiều lần đăng nhập không thành công - Đưa ra cảnh báo choSuccessful Login After multiple Login Attempts
+  
+  - Một quy tắc được thiết lập để cảnh báo mỗi khi người dùng cắm USB (Hữu ích nếu USB bị hạn chế theo chính sách của công ty)
+
+  - Nếu lưu lượng truy cập đi > 25 MB - Đưa ra cảnh báo về Nỗ lực đánh cắp dữ liệu tiềm ẩn (Thông thường, điều này phụ thuộc vào chính sách của công ty)
+
+**Quy tắc tương quan được tạo ra như thế nào**
+
+- Để giải thích cách thức hoạt động của quy tắc, hãy xem xét các trường hợp sử dụng Eventlog sau:
+
+- Trường hợp sử dụng 1:
+
+  - Kẻ tấn công có xu hướng xóa nhật ký trong giai đoạn sau khai thác để xóa dấu vết của chúng. Một ID sự kiện duy nhất 104 được ghi lại mỗi khi người dùng cố gắng xóa hoặc xóa nhật ký sự kiện. Để tạo quy tắc dựa trên hoạt động này, chúng ta có thể đặt điều kiện như sau: Nếu nguồn nhật ký là WinEventLog và EventID là 104 - Kích hoạt cảnh báo `Event Log Cleared`
+
+- Trường hợp sử dụng 2: Kẻ thù sử dụng các lệnh như whoami sau giai đoạn khai thác/leo thang đặc quyền. Các trường sau sẽ hữu ích để đưa vào quy tắc.
+
+  - Nguồn nhật ký: Xác định nguồn nhật ký ghi lại nhật ký sự kiện
+
+  - ID sự kiện: ID sự kiện nào được liên kết với hoạt động Thực thi quy trình? Trong trường hợp này, ID sự kiện 4688 sẽ hữu ích.
+
+  - NewProcessName: tên quy trình nào sẽ hữu ích khi đưa vào quy tắc?
+
+- Quy tắc: Nếu Nguồn nhật ký là WinEventLog và EventCode là 4688 và NewProcessName chứa whoami, thì kích hoạt cảnh báo `WHOAMI command Execution DETECTED`
+
+**Cảnh báo điều tra**
+
+- Khi giám sát SIEM , các nhà phân tích dành phần lớn thời gian của họ trên bảng điều khiển vì nó hiển thị nhiều chi tiết quan trọng về mạng theo cách rất tóm tắt. Khi cảnh báo được kích hoạt, các sự kiện/luồng liên quan đến cảnh báo sẽ được kiểm tra và quy tắc sẽ được kiểm tra để xem điều kiện nào được đáp ứng. Dựa trên cuộc điều tra, nhà phân tích xác định xem đó là kết quả True hay False positive. Một số hành động được thực hiện sau khi phân tích là:
+
+  - Cảnh báo là Báo động giả. Có thể cần điều chỉnh quy tắc để tránh các báo động giả tương tự xảy ra lần nữa.
+
+  - Cảnh báo là True Positive. Thực hiện điều tra thêm.
+
+  - Liên hệ với chủ sở hữu tài sản để hỏi về hoạt động này.
+
+  - Hoạt động đáng ngờ được xác nhận. Cô lập vật chủ bị nhiễm bệnh.
+
+  - Chặn IP đáng ngờ.
