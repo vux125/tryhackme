@@ -2,7 +2,7 @@
 
 ## 1. Broken Access Control
 
-- Trên các trang web có những trang dduowcjbaor vệ khỏi những người truy cập thường xuyên. Ví dụ, chỉ người dùng quản trị của trang web mới có thể truy cập vào trang quản lý những người dùng khác. Nhưng nếu một người bình thường truy cập trang web và có thể truy cập vào trang được bảo vệ mà họ không được phép xem thì ta có thể nói đây là một lỗi broken access control.
+- Trên các trang web có những trang được vệ khỏi những người truy cập thường xuyên. Ví dụ, chỉ người dùng quản trị của trang web mới có thể truy cập vào trang quản lý những người dùng khác. Nhưng nếu một người bình thường truy cập trang web và có thể truy cập vào trang được bảo vệ mà họ không được phép xem thì ta có thể nói đây là một lỗi broken access control.
 
 - Broken access control cho phép kẻ tấn công bỏ qua quyền hạn cho phép chúng xem dữ liệu nhạy cảm và thực hiện các nghiệm vụ mà chúng không được phép làm.
 
