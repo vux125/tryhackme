@@ -160,7 +160,7 @@
       
   ![image](https://github.com/user-attachments/assets/361e05ed-f797-4834-b9fa-0a14e2c0e79c)
 
-    - Vấn đề là nếu kẻ tấn công bằng cách nào đó hack vào kho lưu trữ chính thức của jQuery, chúng có thể thay đổi nội dung `https://code.jquery.com/jquery-3.6.1.min.js` để chèn mã độc. Do đó, bất kỳ ai truy cập trang web của bạn giờ đây sẽ kéo mã độc và thực thi nó vào trình duyệt của họ mà không hề hay biết. Đây là lỗi toàn vẹn phần mềm vì trang web của bạn không kiểm tra thư viện của bên thứ ba để xem nó có thay đổi hay không. Các trình duyệt hiện đại cho phép bạn chỉ định một hàm băm dọc theo URL của thư viện để mã thư viện chỉ được thực thi nếu hàm băm của tệp đã tải xuống khớp với giá trị mong đợi. Cơ chế bảo mật này được gọi là Toàn vẹn tài nguyên phụ (SRI
+    - Vấn đề là nếu kẻ tấn công bằng cách nào đó hack vào kho lưu trữ chính thức của jQuery, chúng có thể thay đổi nội dung `https://code.jquery.com/jquery-3.6.1.min.js` để chèn mã độc. Do đó, bất kỳ ai truy cập trang web của bạn giờ đây sẽ kéo mã độc và thực thi nó vào trình duyệt của họ mà không hề hay biết. Đây là lỗi toàn vẹn phần mềm vì trang web của bạn không kiểm tra thư viện của bên thứ ba để xem nó có thay đổi hay không. Các trình duyệt hiện đại cho phép bạn chỉ định một hàm băm dọc theo URL của thư viện để mã thư viện chỉ được thực thi nếu hàm băm của tệp đã tải xuống khớp với giá trị mong đợi. Cơ chế bảo mật này được gọi là Toàn vẹn tài nguyên phụ (SRI)
   
     - Cách đúng để chèn thư viện vào mã HTML của bạn là sử dụng SRI và bao gồm một hàm băm toàn vẹn để nếu bằng cách nào đó kẻ tấn công có thể sửa đổi thư viện, bất kỳ máy khách nào điều hướng qua trang web của bạn sẽ không thực thi phiên bản đã sửa đổi. Sau đây là cách nó sẽ trông như thế nào trong HTML:
  
