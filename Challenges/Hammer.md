@@ -54,7 +54,7 @@
 
 - Mã Digit Code gồm 4 sô ta có thể brute force.
 
-## Khai thác
+## Exploit
 
 - Ta nhập thử các mã code quan sat burp suite thấy một điều rằng trong response Rate-Limit-Pending giảm dần khi bằng 0 thì sẽ không cho nhập code nữa, nhưng có trong phần Cookie thằng PHPSESSID luôn không đổi qua các lần nhập sai mã.
 
