@@ -54,3 +54,5 @@
 - `-oG FILENAME`: Lọc đầu ra quét theo các từ khóa hoặc thuật ngữ cụ thể một cách hiệu quả.
 
 - `-oX FILENAME`: Lưu kết quả quét ở định dạng XML
+
+- `-oA`: Để lưu cả 3 định dạng
