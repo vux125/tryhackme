@@ -40,7 +40,7 @@
 
 ![image](https://github.com/user-attachments/assets/c15c578d-e95f-4947-a8d4-fef9d8403111)
 
-- Ta chú ý chức năng profile, khi ta thay đổi firstname thì tiêu đề `Welcome, ...` thay đổi theo. Ta nghĩ đến các lỗ hổng cho phép 
+- Ta chú ý chức năng profile, khi ta thay đổi firstname thì tiêu đề `Welcome, ...` thay đổi theo. Website có thể dùng template để chèn firstname vào, sau một thời gian thử các payload thì có payload đã hoạt động:
  
 ![image](https://github.com/user-attachments/assets/1c0b9a33-121e-42eb-8719-9b0f3e2ba43f)
 
@@ -50,6 +50,8 @@
 
 ![image](https://github.com/user-attachments/assets/941f42bc-17db-40bd-8020-2df4fe058ad9)
 
+- Giờ ta sẽ thực hiện tải lên một payload nhằm RCE hệ thống, đồng thời mở một cổng để lắng nghe trên máy:
+  
 ![image](https://github.com/user-attachments/assets/7db9ccc6-70e9-4bd0-af52-9b7f75b1a03b)
 
 ![image](https://github.com/user-attachments/assets/f2634ba5-f480-46a3-a2f5-08fdca3c171c)
