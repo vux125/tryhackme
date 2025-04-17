@@ -46,7 +46,9 @@
 - `-d` or `-dd` : để gỡ lỗi
 
 - `--script=default` or `-sC`: Chỉ định sử dụng kich bản
-  
+
+- `-A`: Phát hiện hệ điều hành, phiên bản, script scanning và traceroute
+
 ![image](https://github.com/user-attachments/assets/1fe4ee74-3b49-4629-8113-a10ff388137f)
 
 - `-oN FILENAME`: Normal định dạng bình thường tương tự như kết quả bạn nhận được trên màn hình khi quét mục tiêu.
