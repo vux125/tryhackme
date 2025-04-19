@@ -182,21 +182,21 @@
 
 - Danh sách sẽ hiển thị các phiên bản Meterpreter có sẵn cho các nền tảng sau:
 
-1. Android
-
-2. Apple iOS
-
-3. Java
-
-4. Linux
-
-5. OSX
-
-6. PHP
-
-7.Python
-
-8. Windows
+  1. Android
+  
+  2. Apple iOS
+  
+  3. Java
+  
+  4. Linux
+  
+  5. OSX
+  
+  6. PHP
+  
+  7.Python
+  
+  8. Windows
 
 - Quyết định của bạn về việc sử dụng phiên bản Meterpreter nào sẽ chủ yếu dựa trên ba yếu tố;
 
