@@ -44,5 +44,42 @@
 
 - Giờ hãy sử dụng Metasploit để khai thác nó:
 
+<img width="1665" height="1010" alt="image" src="https://github.com/user-attachments/assets/21b2537b-b371-48a2-aad5-52c258a7908f" />
 
+- Tạo một reverce shell mới:
 
+<img width="977" height="498" alt="image" src="https://github.com/user-attachments/assets/f10241e2-7698-4543-b42f-727f02e6d572" />
+
+- Dùng find để tìm các lệnh có setuid:
+
+<img width="833" height="1032" alt="image" src="https://github.com/user-attachments/assets/ac020735-d82f-4604-a30e-a40ee87621ac" />
+
+- Ta thấy /usr/sbin/pwm là lệnh khá lạ trên hệ thống linux, ta thử chạy lệnh và thấy "id" được chạy
+
+<img width="690" height="143" alt="image" src="https://github.com/user-attachments/assets/4d69badc-a9f1-412c-a2c4-79cef700512e" />
+
+- Ta sẽ tạo ra một lệnh id trong /tmp và thêm đường dẫn vào biến môi trường PATH
+
+<img width="985" height="119" alt="image" src="https://github.com/user-attachments/assets/89b40836-c157-431e-9c00-1196cc28e4d3" />
+
+<img width="1007" height="190" alt="image" src="https://github.com/user-attachments/assets/20186cae-991a-4466-b14e-8eec50e5030f" />
+
+- Thực hiện cấp quyenf thực thi cho /tmp/id và chạy usr/sbin/pwm:
+
+<img width="1010" height="425" alt="image" src="https://github.com/user-attachments/assets/4fae7236-b9c0-4319-a449-e2977bd5f9c4" />
+
+- Đây có thể là danh sách mật khẩu của think, tôi sẽ dùng hydra để brute force dịch vụ ssh:
+
+<img width="809" height="380" alt="image" src="https://github.com/user-attachments/assets/8670dc4b-25b2-489e-8400-f0ea15c975ef" />
+
+- Đăng nhập ssh và lấy flag:
+
+<img width="782" height="139" alt="image" src="https://github.com/user-attachments/assets/2a8cf849-a923-453a-94a5-d6fcb796851e" />
+
+- Kiểm tra đặc quyền sudo của think ta thấy người dùng này có thể thực thi lệnh look với quyền sudo:
+
+<img width="815" height="256" alt="image" src="https://github.com/user-attachments/assets/04fc3ebf-83cc-4ed8-90b0-97e87270f508" />
+
+- Lợi dụng điều này ta có thể đọc root.txt bằng lệnh look:
+
+<img width="822" height="107" alt="image" src="https://github.com/user-attachments/assets/e9c7b650-180e-4187-9db1-0c2fe9a59a0c" />
