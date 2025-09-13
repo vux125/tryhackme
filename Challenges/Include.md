@@ -32,8 +32,47 @@
 
 <img width="1321" height="626" alt="image" src="https://github.com/user-attachments/assets/b78449ea-b76b-4c19-9cc8-76cbfb518c29" />
 
+- Mở view-source của dashboard.php ta thấy có img tag là nơi đáng nghi nhất với tham số img truyền vào 1 file khả năng xảy ra path travesal hoặc include:
 
+<img width="842" height="713" alt="image" src="https://github.com/user-attachments/assets/5dd6d003-631c-4e99-966c-3a0db29f124a" />
 
+- Ta thử payload với img sử dụng gobuster fuzz và lưu kết quả vào result.txt:
 
+<img width="1286" height="105" alt="image" src="https://github.com/user-attachments/assets/4dde1ee1-de74-4af5-a7f6-15d45ccc1160" />
 
+- Lọc bỏ các kết quả có Length=0:
+
+<img width="1268" height="494" alt="image" src="https://github.com/user-attachments/assets/bf74252a-bc37-4955-abb4-114dc0e11840" />
+
+- Test các payload đã lọc được ta thấy rằng có thể được file /etc/passwd:
+
+<img width="989" height="707" alt="image" src="https://github.com/user-attachments/assets/c27b25e8-f15a-4fbf-9da6-93fbae112ca1" />
+
+- Tôi thử đọc 1 số file log của hệ thống:
+
+<img width="1429" height="356" alt="image" src="https://github.com/user-attachments/assets/eebd3ec2-5286-484f-8655-db50e69d2e6d" />
+
+<img width="1452" height="235" alt="image" src="https://github.com/user-attachments/assets/ce374482-3039-4857-8d47-b08c3608ee33" />
+
+- Ban đầu ta quét nmap thấy được rằng trên hệ thống đang mở dịch vụ ssh ta có thể lợi dụng việc này để ghi log vào file auth.log để thực hiện include:
+
+<img width="1608" height="480" alt="image" src="https://github.com/user-attachments/assets/3db5f1a4-1c02-42a9-8559-e60f9ecfbddd" />
+
+- Chèn đoạn reverse php làm tên user để ghi vào log:
+
+<img width="1335" height="614" alt="image" src="https://github.com/user-attachments/assets/ffe2b15b-a8a8-4c5e-adb8-dc1d218e082d" />
+
+<img width="1320" height="883" alt="image" src="https://github.com/user-attachments/assets/acb0ba4f-1f86-4684-b09f-5e7b9498633f" />
+
+- Dùng system("ls") để liệt kê các mục trong /var/www/html:
+
+<img width="1301" height="861" alt="image" src="https://github.com/user-attachments/assets/6de39fbc-d69f-4f31-b6c9-5c051b7f3967" />
+
+- Dùng ***<?php system("cat 505eb0fb8a9f32853b4d955e1f9123ea.txt"); ?>*** để lấy flag:
+
+<img width="716" height="551" alt="image" src="https://github.com/user-attachments/assets/0d49f9fb-a741-40de-a424-3f87e71eb7ee" />
+
+<img width="1831" height="239" alt="image" src="https://github.com/user-attachments/assets/08d807b2-9e8f-47f9-affb-cd61076a684e" />
+
+- Flag: **THM{505eb0fb8a9f32853b4d955e1f9123ea}**
 
